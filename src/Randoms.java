@@ -7,13 +7,13 @@ public class Randoms implements Iterable<Integer> {
 
     protected Random random = new Random();
     private List<Integer> list = new ArrayList<>();
+    private int max;
+    private int min;
 
     public Randoms(int min, int max) {
-        int x = 0;
-        while (x < 100) {
-            list.add(random.nextInt((max - min) + 1) + min);
-            x++;
-        }
+        this.max = max;
+        this.min = min;
+        
     }
 
     @Override
@@ -24,6 +24,7 @@ public class Randoms implements Iterable<Integer> {
 
             @Override
             public boolean hasNext() {
+                list.add(random.nextInt((max - min) + 1) + min);
                 return true;
             }
 
